@@ -1,0 +1,35 @@
+/full path/file1
+/full path/file2
+- Are Duplicates
+
+
+
+Prompt: Y/N
+"Do you want to delete the duplicate files?
+
+--Then delete the 2nd copy of the duplicate files.
+
+
+
+Possibilities
+2 arrays
+
+array one stores file1
+
+array two stores file2
+
+when the option to delete duplicates is true,
+just delete all files from the second array.
+
+The script should search from where it's located -> in
+
+-- Dont delete bolth files!
+
+Using the dataset in the zip file attached to this assignment, 
+find all the duplicate files wherever they exist withing the folder structure.  Print me a list of the duplicate files with their full paths like I showed you in class.  
+
+Give me an option to delete the duplicate files.  
+If I press Y delete the second of the 2 duplicate files found.
+
+===== compute file hashes recursively =====
+find /your/path -type f -exec md5sum '{}' '+'

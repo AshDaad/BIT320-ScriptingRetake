@@ -1,0 +1,116 @@
+----------CaptureCount----------
+8:7:6:5:4:3:2:1::1:2:3:4:5:6:7:8
+--------------------------------
+(Full IPv6)
+1:2:3:4:5:6:7:8
+(:: Coverage)
+1:2:3:4:5:6::8
+1:2:3:4:5::7:8
+1:2:3:4::6:7:8
+1:2:3::5:6:7:8
+1:2::4:5:6:7:8
+1::3:4:5:6:7:8
+::2:3:4:5:6:7:8
+::
+1::
+1::8
+1::7:8
+1::6:7:8
+1::5:6:7:8
+1::4:5:6:7:8
+1::3:4:5:6:7:8
+::2:3:4:5:6:7:8
+1:2:3:4:5:6:7::
+1:2:3:4:5:6::8
+1:2:3:4:5::8
+1:2:3:4::8
+1:2:3::8
+1:2::8
+1::8
+::8
+(Real-world tests)
+2001:4860:4860::8888
+24A1::632:9FF5:ABE1:452E
+fe80:0:0:0:204:61ff:fe9d:f156
+2002:a01:9b02:0:d323:54d6:5432:af75
+c207:2c13:a721:d1ed:70:193d:7f91:4d9
+f5b9:bb18:d10e:61d4:a4f7:7b3e:0007:cb16
+c478:bb4a:20bc:c615:cd4c:48fe:45eb:3246
+799F:51CC:3656:1F12:F430:7645:AAB1:1252
+Thu Oct 12 17:11:11 MDT 2017 7807:4D75:A3A3:33D9:1FB8:B146:3E44:5DCD
+(link-local IPv6 with zone index)
+fe80::1
+FE80::
+FE80::AB8
+--Linux ifconfig Format--
+FE80::C001:37FF:FE6C:0
+fe80::18d9:1214:120c:e267
+--Windows ipconfig Format--
+fe80::ed75:614f:cb15:5b64%9
+fe80::3028:2384:c01b:2f45%2
+(IPv4-translated)
+::ffff:1.2.3.4
+::ffff:127.0.0.1
+::ffff:3fe4:d0ba
+(IPv4-Embedded IPv6)
+2001:db8:3:4::192.168.1.123
+64:ff9b::192.168.1.123
+
+
+=== EndGoal Tests ===
+
+
+eno16777736: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.26.135  netmask 255.255.255.0  broadcast 192.168.26.255
+        inet6 fe80::18d9:1214:120c:e267  prefixlen 64  scopeid 0x20<link>
+        ether 26:38:43:46:a5:51  txqueuelen 1000  (Ethernet)
+        RX packets 642  bytes 89758 (87.6 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 53  bytes 6800 (6.6 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens37: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        ether 00:0c:29:3a:6e:de  txqueuelen 1000  (Ethernet)
+        RX packets 596  bytes 85935 (83.9 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens38: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.1.19  netmask 255.255.255.0  broadcast 192.168.1.255
+        inet6 fe80::4ff1:a846:e18a:3e2  prefixlen 64  scopeid 0x20<link>
+        inet6 ::ffff:3fe4:d0ba  prefixlen 64  scopeid 0x0<global>
+        ether 48:2b:7d:aa:a6:31  txqueuelen 1000  (Ethernet)
+        RX packets 54630  bytes 23293378 (22.2 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 25820  bytes 29795549 (28.4 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+otrTst: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.1.19  netmask 255.255.255.0  broadcast 192.168.1.255
+        inet6 2001:db8:3:4::192.168.1.123  TestScope IPv4-Embedded IPv6
+        inet6 2002:a01:9b02:0:d323:54d6:5432:af75  TestScope IPv4-translated
+        inet6 fe80::18d9:1214:120c:e267  TestScope Link-Local
+        ether 48:2b:7d:aa:a6:31  txqueuelen 1000  (Ethernet)
+        RX packets 54630  bytes 23293378 (22.2 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 25820  bytes 29795549 (28.4 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1  (Local Loopback)
+        RX packets 50  bytes 5720 (5.5 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 50  bytes 5720 (5.5 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+virbr0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 192.168.122.1  netmask 255.255.255.0  broadcast 192.168.122.255
+        ether 52:54:00:9a:8b:f8  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+

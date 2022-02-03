@@ -1,0 +1,27 @@
+Start
+
+    Using SED AWK or GREP create a script that:
+
+    Dynamically finds the first ethernet adapter on the systems
+
+    Prints to the screen the current state of the adapter (static or dhcp)
+
+    Prints to the screen the current IP, subnet, gateway, dns
+
+    Asks if I want to set the adapter to DHCP or STATIC
+
+    If static asks for input for IP, Sub, GW, and DNS
+
+    Sets adapter and restarts network services
+
+End
+
+
+
+
+
+Network scripts file in centOS7
+/etc/sysconfig/network-scripts/
+
+  ver
+  
